@@ -1,18 +1,17 @@
 <template name="lead">
-    {{#if currentUser}}
-        Somehow check whether we can get the current location or not
-        If not, ask them for it.
-        ... currently sharing as: {{loginButtons}}
-    {{else}}
         <h3>Steps To Be a Leader:</h3>
         <ol>
-            <li>Log in via twitter: {{loginButtons}}</li>
-            <li>Allow this site to use your physical location: ...</li>
+            {{#if currentUser}}
+                <i class="icon-ok">icon-ok</i>
+                Logged in as: {{loginButtons}}
+            {{else}}
+                <li>Log in via twitter: {{loginButtons}}</li>
+            {{/if}}
+            <li>Allow this site to use <button class="btn getlocation">your physical location</button> </li>
             <li><a class="btn disabled" href="share">Share your link with your friends</a> </li>
             <li><a class="btn" href="pause">Pause the sharing of your location</a> </li>
             <li>Or Stop sharing by signing out of twitter: <a class="btn disabled" href="logout">loginButtons here</a></li>
             <li>Or Let sharing auto-pause in <a class="btn" href="autopause">20 minutes</a></li>
         </ol>
-    {{/if}}
 </template>
 
