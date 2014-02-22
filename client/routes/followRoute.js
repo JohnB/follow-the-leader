@@ -1,11 +1,11 @@
-var FollowController = RouteController.extend({
-    template: 'follow'
+var UsersController = RouteController.extend({
+    template: 'usersList'
 });
 
 Router.map(function () {
-    this.route('follow', {
+    this.route('usersList', {
         path :  '/follow',
-        controller :  FollowController
+        controller :  UsersController
     });
 });
 
