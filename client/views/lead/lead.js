@@ -1,4 +1,8 @@
-Template['lead'].helpers({
+Template.lead.helpers({
+    lat_and_lon: function() {
+        var pos = Session.get('location');
+        return 'lat=' + pos[0] + '\&lon=' + pos[1];
+    }
 });
 
 Template['lead'].events({
