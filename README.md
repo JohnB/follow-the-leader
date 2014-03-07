@@ -6,9 +6,8 @@ App to allow you to inform your friends of your current location.
 
 * Two choices: Lead or Follow
 
-A leader must login via twitter, provide a password for their friends to use and enable location tracking.
-From that point onward, unless they pause or log out, they will be broadcasting their physical location to all their
- followers.
+A leader allows location tracking and is given a url to share with their friends. 
 
-A follower is given a list of leaders to choose from and, when they pick one, are required to enter the leader's
-password. At this point they are shown a map centered on the leader's location.
+Anyone clicking on the "follow" button is told that the only way to follow someone is to be given a special url by the person you will be following. 
+
+The special url will show a map centered on the leaders most recent location, and how long ago it was updated. The url may only work for an hour or so (clone the repo if you want it to run longer against your own server.
