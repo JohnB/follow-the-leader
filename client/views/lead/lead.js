@@ -5,7 +5,7 @@ Template.lead.helpers({
     }
 });
 
-Template['lead'].events({
+Template.lead.events({
     'click .getlocation': function() {
         if (navigator.geolocation)
         {
