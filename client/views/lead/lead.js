@@ -1,7 +1,10 @@
 Template.lead.helpers({
     lat_and_lon: function() {
         var pos = Session.get('location');
-        var result = 'lat=' + pos[0] + '\&lon=' + pos[1];
+        var result = 'unknown';
+        if( pos != undefined ) {
+            result = 'lat=' + pos[0] + '\&lon=' + pos[1];
+        }
         console.log(result);
         return result;
     }
