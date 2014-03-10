@@ -1,16 +1,21 @@
 Template.lead.helpers({
     lat_and_lon: function() {
         var pos = Session.get('location');
-        return 'lat=' + pos[0] + '\&lon=' + pos[1];
+        var result = 'lat=' + pos[0] + '\&lon=' + pos[1];
+        console.log(result);
+        return result;
     }
 });
 
 Template.lead.events({
     'click .getlocation': function() {
+        alert('asking for location');
         if (navigator.geolocation)
         {
-            navigator.geolocation.getCurrentPosition(showPosition);
-            // TODO: figure out how to display the lat/lon
+            alert('got location');
+            navigator.geolocation.watchPosition(function (pos) {
+                Session.set('location', [pos.coords.latitude, pos.coords.longitude] );
+            });
         }
         else
         {
