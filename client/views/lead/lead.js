@@ -1,6 +1,6 @@
 Template.lead.helpers({
     lat_and_lon: function() {
-        var pos = Session.get('location');
+        var pos = Session.get('locationary.id');
         var result = 'unknown';
         if( pos != undefined ) {
             result = 'lat=' + pos[0] + '\&lon=' + pos[1];
@@ -17,7 +17,7 @@ Template.lead.events({
         {
             alert('got location');
             navigator.geolocation.watchPosition(function (pos) {
-                Session.set('location', [pos.coords.latitude, pos.coords.longitude] );
+                Session.set('locationary.id', [pos.coords.latitude, pos.coords.longitude] );
             });
         }
         else
