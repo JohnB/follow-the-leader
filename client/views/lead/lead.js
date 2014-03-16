@@ -1,13 +1,26 @@
+
 Template.lead.helpers({
-    lat_and_lon: function() {
-        var pos = Session.get('locationary.id');
-        var result = 'unknown';
-        if( pos == undefined ) {
-            pos = [51.505, -0.09];  // London, per http://leafletjs.com/examples/quick-start.html
-        }
-        result = 'lat=' + pos[0] + '\&lon=' + pos[1];
-        console.log(result);
-        return result;
+    locationary: function() {
+        return {
+            session_key: "locationary",
+            latitude: function() {
+                var pos = Session.get(this.session_key);
+                if (pos == undefined) {
+                    return 51.4791;   //   http://en.wikipedia.org/wiki/Greenwich (aka UTC or ZULU)
+                }
+                return pos[0];
+            },
+            longitude: function() {
+                var pos = Session.get(this.session_key);
+                if (pos == undefined) {
+                    return 0.0;   //   http://en.wikipedia.org/wiki/Greenwich (aka UTC or ZULU)
+                }
+                return pos[1];
+            },
+            locationRequestAllowed: function() {
+                return (Session.get(this.session_key) != undefined);
+            }
+        };
     }
 });
 
@@ -16,7 +29,7 @@ Template.lead.events({
         if (navigator.geolocation)
         {
             navigator.geolocation.watchPosition(function (pos) {
-                Session.set('locationary.id', [pos.coords.latitude, pos.coords.longitude] );
+                Session.set('locationary', [pos.coords.latitude, pos.coords.longitude] );
             });
         }
         else

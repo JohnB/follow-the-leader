@@ -2,11 +2,22 @@
     <div class="span4 offset3">
         <button class="btn getlocation">Click here use your location</button>
     </div>
-    {{lat_and_lon}}
     <div>
         <small class="attribution muted">&copy;
-            <a href="http://www.openstreetmap.org/?{{lat_and_lon}}&zoom=15&layers=M"
+            <a href="http://www.openstreetmap.org/?lat={{locationary.latitude}}&lon={{locationary.longitude}}&zoom=15&layers=M"
                target="_blank">OpenStreetMap</a> contributors</small>
     </div>
+    Location request is: <b>
+        {{#if locationary.locationRequestAllowed}}
+            allowed
+        {{else}}
+            DISALLOWED
+        {{/if}}
+    </b>
+    <br />
+    {{locationary.latitude}}
+    <br />
+    {{locationary.longitude}}
+    <br />
 </template>
 
