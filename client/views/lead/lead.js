@@ -13,7 +13,7 @@ Template.lead.helpers({
             longitude: function() {
                 var pos = Session.get(this.session_key);
                 if (pos == undefined) {
-                    return 0.0;   //   http://en.wikipedia.org/wiki/Greenwich (aka UTC or ZULU)
+                    return 0.0;       //   http://en.wikipedia.org/wiki/Greenwich (aka UTC or ZULU)
                 }
                 return pos[1];
             },
