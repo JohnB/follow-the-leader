@@ -33,10 +33,15 @@ Template.lead.events({
                 zoom: 16,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
+            var marker = undefined;
             navigator.geolocation.watchPosition(function (pos) {
                 Session.set('locationary', [pos.coords.latitude, pos.coords.longitude] );
                 center = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
                 map.setCenter(center);
+                marker = new google.maps.Marker({
+                    position: center,
+                    map: map
+                });
             });
         }
         else
