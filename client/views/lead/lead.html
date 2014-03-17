@@ -1,11 +1,8 @@
 <template name="lead">
     {{#if locationary.locationRequestAllowed}}
-        <div id="map"></div>
-        <br />
-        {{locationary.latitude}}
-        <br />
-        {{locationary.longitude}}
-        <br />
+        <div class="span4 offset3">
+            <button class="btn">You are here: {{locationary.latitude}}, {{locationary.longitude}}</button>
+        </div>
     {{else}}
         <div class="span4 offset3">
             <button class="btn getlocation">Click here use your location</button>
