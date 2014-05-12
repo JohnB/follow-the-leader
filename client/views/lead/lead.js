@@ -28,7 +28,11 @@ Template.lead.events({
     'click .getlocation': function() {
         if (navigator.geolocation)
         {
-            var center = new google.maps.LatLng(51.508742,-0.120850);
+            var lat = 51.508742;
+            var lng = -0.120850;
+            var center = new google.maps.LatLng(lat,lng);
+            var locationId = Locations.insert({lat: lat, lng: lng});
+            var location = Locations.findOne({_id: locationId});
             var map = new google.maps.Map(document.getElementById("googleMap"),{
                 zoom: 16,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -36,6 +40,7 @@ Template.lead.events({
             var marker = undefined;
             navigator.geolocation.watchPosition(function (pos) {
                 Session.set('locationary', [pos.coords.latitude, pos.coords.longitude] );
+                Locations.update(locationId, {lat: pos.coords.latitude, lng: pos.coords.longitude});
                 center = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
                 map.setCenter(center);
                 marker = new google.maps.Marker({
