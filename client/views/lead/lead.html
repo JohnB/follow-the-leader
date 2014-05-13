@@ -3,10 +3,12 @@
         <div class="span4 offset3">
             <button class="btn">You are here: {{locationary.latitude}}, {{locationary.longitude}}</button>
         </div>
+        <div class="span4 offset3">
+            <button class="btn">Send this to a friend:</button> {{followURL}}
+        </div>
     {{else}}
         <div class="span4 offset3">
             <button class="btn getlocation">Click here use your location</button>
         </div>
     {{/if}}
 </template>
-

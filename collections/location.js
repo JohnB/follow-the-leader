@@ -1,10 +1,10 @@
 Locations = new Meteor.Collection("locations");
 
 Locations.allow({
-  insert: function locationInsert() {
+  insert: function() {
     return true;
   },
-  update: function locationInsert() {
+  update: function() {
     return true;
   }
 })
