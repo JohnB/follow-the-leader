@@ -1,4 +1,3 @@
-Meteor.publish('user', function () {
-    return User.find();
+Meteor.publish('locationObject', function (_id) {
+    return Locations.find({_id: _id});
 });
-
