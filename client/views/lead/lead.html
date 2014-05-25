@@ -1,10 +1,7 @@
 <template name="lead">
     {{#if locationary.locationRequestAllowed}}
-        <div class="span4 offset3">
-            <button class="btn">You are here: {{locationary.latitude}}, {{locationary.longitude}}</button>
-        </div>
-        <div class="span4 offset3">
-            <button class="btn">Send this to a friend:</button> {{followURL}}
+        <div>
+            <a href="{{followURL}}">Send This Link</a>
         </div>
     {{else}}
         <div class="span4 offset3">
