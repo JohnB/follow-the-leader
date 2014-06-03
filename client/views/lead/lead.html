@@ -1,11 +1,12 @@
 <template name="lead">
-    {{#if locationary.locationRequestAllowed}}
-        <div>
-            <a href="{{followURL}}">Send This Link</a>
-        </div>
-    {{else}}
-        <div class="span4 offset3">
-            <button class="btn getlocation">Click here use your location</button>
-        </div>
-    {{/if}}
+  {{#if locationRequestAllowed}}
+    <div>
+      <a href="{{followURL}}">Send This Link</a>
+    </div>
+    {{> googleMap}}
+  {{else}}
+    <div class="span4 offset3">
+      <button class="btn getlocation">Click here use your location</button>
+    </div>
+  {{/if}}
 </template>
