@@ -1,9 +1,9 @@
 var UsersController = RouteController.extend({
-    template: 'usersList'
+    template: 'follow'
 });
 
 Router.map(function () {
-    this.route('usersList', {
+    this.route('follow', {
         path :  '/follow/:locationID',
         controller :  UsersController,
         waitOn: function() {
@@ -17,6 +17,8 @@ Router.map(function () {
           console.log('Finding ' + this.params.locationID);
           var loc = Locations.findOne({_id: this.params.locationID});
           console.log('Found '+loc);
+          console.log('lat '+loc.lat);
+          Session.set('mapCenter', [loc.lat, loc.lng] );
           return loc;
         }
     });

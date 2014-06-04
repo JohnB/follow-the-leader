@@ -1,11 +1,33 @@
 
 
-// Deps.autorun(function () {
-//   Meteor.subscribe("locationObject", function () {
-//     console.log("locationObject ");
+Deps.autorun(function () {
+  Meteor.subscribe("locationObject", function () {
+    console.log("locationObject ");
+    var locationId = this.params.locationid;
+    var location = Locations.findOne({_id: locationId});
+    if (location) {
+      var lat = location.lat;
+      var lng = location.lng;
+      Session.set('mapCenter', [lat, lng] );
+    }
+  });
+});
+
+// Template.follow.rendered = function() {
+//   self.handle = Deps.autorun(function mapAutofollow() {
+//     Meteor.subscribe("locationObject", function () {
+//       console.log("locationObject ");
+//     });
+//     var self = this;
+//     var locationId = this.params.locationid;
+//     if (locationId) {
+//       var location = Locations.findOne({_id: locationId});
+//       var lat = location.lat;
+//       var lng = location.lng;
+//       Session.set('mapCenter', [lat, lng] );
+//     }
 //   });
-//   // Meteor.subscribe("counts-by-room", Session.get("roomId"));
-// });
+// };
 
 Template.follow.helpers({
     asdf: function() {
